@@ -1,0 +1,63 @@
+<div class="main-container">
+  <div class="first-info-main">
+    <img src="../../../assets/logo/Logo_IT.svg" alt="">
+
+    <span>
+      <b>¿Por que confiar en nosotros?</b>
+
+      <br>
+
+      Expertos en Impuestos, Tu Alivio Financiero.
+    </span>
+
+
+    <div class="items-columns">
+      <div class="items-tips">
+        <div class="column">
+          <img src="../../../assets/icon/shield-solid.svg" alt="">
+        </div>
+        <div class="column">
+          <img src="../../../assets/icon/calculator-solid.svg" alt="">
+        </div>
+        <div class="column">
+          <img src="../../../assets/icon/handshake-simple-solid.svg" alt="">
+        </div>
+      </div>
+
+      <div class="items-tips" >
+        <div class="column">
+          <span>Tu Tranquilidad, Nuestra Prioridad</span>
+        </div>
+        <div class="column">
+            <span>Expertos en Administración Tributaria</span>
+        </div>
+        <div class="column">
+            <span>Profesionales de Confianza en Impuestos</span>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+  <!-- <app-services-carrousel></app-services-carrousel> -->
+
+  <swiper-container
+
+    pagination="true"
+    pagination-clickable="true"
+    slides-per-view="4">
+
+    <swiper-slide *ngFor="let service of services;let i = index">
+
+      <div class="content-img-swiper">
+        <fa-icon [icon]="service.logo"></fa-icon>
+      </div>
+
+      <h1>{{service.name}}</h1>
+
+      <p>{{service.text}}</p>
+    </swiper-slide>
+  </swiper-container>
+
+</div>
