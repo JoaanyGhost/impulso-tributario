@@ -7,7 +7,7 @@
 
       <br>
 
-      Expertos en Impuestos, Tu Alivio Financiero.
+      <span style="font-size: 25px;"> Somos expertos en asuntos tributarios y brindamos asesoría legal personalizada para optimizar tus obligaciones fiscales.</span>
     </span>
 
 
@@ -26,13 +26,13 @@
 
       <div class="items-tips" >
         <div class="column">
-          <span>Tu Tranquilidad, Nuestra Prioridad</span>
+          <span>Tu tranquilidad, nuestra prioridad</span>
         </div>
         <div class="column">
-            <span>Expertos en Administración Tributaria</span>
+            <span>Expertos en administración tributaria</span>
         </div>
         <div class="column">
-            <span>Profesionales de Confianza en Impuestos</span>
+            <span>Profesionales de confianza en impuestos</span>
         </div>
       </div>
     </div>
@@ -40,13 +40,12 @@
 
   </div>
 
-  <!-- <app-services-carrousel></app-services-carrousel> -->
 
   <swiper-container
-
     pagination="true"
     pagination-clickable="true"
-    slides-per-view="4">
+    [slidesPerView]="config.slidesPerView"
+    [breakpoints]="config.breakpoints">
 
     <swiper-slide *ngFor="let service of services;let i = index">
 

@@ -14,85 +14,195 @@
     width: 30%;
   }
 
-  .marca{
-    display: flex;
-    gap: 30px;
-    align-items: center;
-    .logo{
-      width: 60px;
-    }
 
-    span{
-      color: #fff;
-      font-weight: 600;
-      text-transform: uppercase;
-      text-align: center;
-      font-size: 25px;
-    }
+
+  .menu{
+    display: none;
+    font-size: 25px;
+    margin: 0;
+    color: white;
+    background: transparent;
+    border: none;
+  }
+}
+
+
+.marca{
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  .logo{
+    width: 60px;
   }
 
-
-  .info{
-    display: flex;
-    gap: 65px;
-    li{
-      list-style: none;
-
-      a{
-        display: block;
-        position: relative;
-        text-decoration: none;
-        color: white;
-        font-size: 20px;
-        padding: 0px 15px 10px 15px ;
-      }
-
-      a::before{
-        content: '';
-        position: absolute;
-        display: block;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        height: 2px;
-        transform: scaleX(0);
-        transition: transform 0.3s ease;
-
-        background-color: #BC8D70;
-      }
-
-      a:hover::before{
-        transform: scaleX(1);
-      }
-    }
+  span{
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 25px;
   }
+}
 
-  .info-contact{
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+
+.info{
+  display: flex;
+  gap: 65px;
+  li{
+    list-style: none;
 
     a{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 25px;
+      display: block;
+      position: relative;
       text-decoration: none;
       color: white;
       font-size: 20px;
+      padding: 0px 15px 10px 15px ;
+    }
 
-      img{
-        background-color: #fff;
-        width: 30px;
-        padding: 5px;
-        border-radius: 5px;
-      }
+    a::before{
+      content: '';
+      position: absolute;
+      display: block;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+
+      background-color: #BC8D70;
+    }
+
+    a:hover::before{
+      transform: scaleX(1);
+    }
+  }
+}
+
+.info-contact{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+
+    img{
+      background-color: #fff;
+      width: 30px;
+      padding: 5px;
+      border-radius: 5px;
     }
   }
 }
 
 
+
 // NAV DISPOSITIVOS MÓVILES
 .nav-mobile{
   display: none;
+
+  position: fixed;
+  width: 60vw;
+  height: 100vh;
+  background-color: rgba(229, 209, 184, 0.991);
+  z-index: 100000000000000000000000000000000;
+  right: 0;
+  top: 0;
+}
+
+
+// Estilos para pantallas de tamaño mediano (por ejemplo, tablets)
+@media(max-width: 1200px) {
+
+  .info-contact , .info{
+    display: none;
+
+  }
+  .nav-web {
+    padding: 20px 5px 0 15px !important;
+    .menu{
+      display: block;
+    }
+
+  }
+
+  .nav-mobile{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    transition: all 0.3s;
+    transform-origin: right;
+    transform: scaleX(0);
+    .info-contact , .info{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 20px;
+      width: 100%;
+
+      a{
+        color: #06515e;
+      }
+
+      img{
+        background-color: #06515e;
+        color: white;
+      }
+
+    }
+
+    .info{
+      padding-left: 0;
+      li{
+        width: 100%;
+        transition: all 0.3s;
+        padding: 10px 0;
+
+        a::before{
+          display: none;
+        }
+      }
+      li:hover{
+        background-color: white;
+      }
+    }
+
+    .info-contact{
+      background-color: white;
+    }
+
+    .nav-header{
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+      button{
+        font-size: 25px;
+        margin: 15px;
+        color: #06515e;
+        background: transparent;
+        border: none;
+      }
+    }
+  }
+
+  .open{
+    transform: scaleX(1);
+  }
+}
+
+// Estilos para pantallas de tamaño pequeño (por ejemplo, teléfonos móviles)
+@media (max-width: 767px) {
+
 }

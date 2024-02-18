@@ -155,3 +155,29 @@
     color: white;
   }
 }
+
+
+
+// Estilos para pantallas de tamaño mediano (por ejemplo, tablets)
+@media (min-width: 768px) and (max-width: 1000px) {
+  .content-header {
+    h1{
+      text-align: center;
+    }
+  }
+}
+
+// Estilos para pantallas de tamaño pequeño (por ejemplo, teléfonos móviles)
+@media (max-width: 767px) {
+  .content-header {
+    h1{
+      text-align: center;
+      font-size: 50px;
+    }
+
+    .btn-header-center{
+      max-width: 70%;
+      text-align: center;
+    }
+  }
+}

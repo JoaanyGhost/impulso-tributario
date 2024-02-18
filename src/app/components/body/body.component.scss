@@ -23,6 +23,8 @@
       width: 70%;
       display: flex;
       flex-direction: column;
+      align-items: center;
+      justify-content: center;
       text-align: center;
       font-size: 30px;
       font-weight: 500;
@@ -36,6 +38,7 @@
     .items-columns{
       display: flex;
       flex-direction: column;
+      overflow-x: hidden;
 
       .items-tips{
         width: 100%;
@@ -80,6 +83,7 @@ swiper-container{
 
   swiper-slide{
     position: relative;
+    width: auto;
     z-index: 100;
     box-sizing: border-box;
     background: transparent;
@@ -188,5 +192,73 @@ swiper-container::before{
   z-index: 1;
 }
 
+
+// Estilos para pantallas de tamaño mediano (por ejemplo, tablets)
+@media (min-width: 768px) and (max-width: 1000px) {
+
+}
+
+// Estilos para pantallas de tamaño pequeño (por ejemplo, teléfonos móviles)
+@media (max-width: 900px) {
+
+  .first-info-main{
+    flex-direction: column;
+    overflow-x: hidden !important;
+    padding: 0 !important;
+    box-sizing: border-box;
+    img{
+      width: 140px !important;
+      margin: 10px 0;
+    }
+    span{
+      width: 95% !important;
+      display: flex;
+      font-size: 18px !important;
+      b{
+        text-transform: uppercase;
+        color: #06515e;
+        font-size: 35px;
+      }
+    }
+
+
+    .items-columns{
+      margin-top: 10px !important;
+      overflow-x: hidden;
+
+      margin: 2px 0 !important;
+      .items-tips{
+        width: 100%;
+        flex: 1;
+        display: flex;
+        padding: 0px !important;
+        margin: 2px 0 !important;
+
+
+        .column{
+          flex: 1;
+          width: 30%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          img{
+            width: 50px !important;
+          }
+          span{
+            text-align: center;
+            font-size: 15px !important;
+          }
+        }
+
+      }
+    }
+
+
+
+  }
+
+
+
+}
 
 

@@ -22,9 +22,27 @@
     <a href="#"><img src="../../../assets/icon/whatsapp.svg" alt=""> +57 316 987453</a>
   </div>
 
+  <button *ngIf="!showHiddenMenu"  class="menu">
+    <fa-icon [icon]="burguer" (click)="activeMenu(true)"></fa-icon>
+  </button>
 
 </div>
 
-<div class="nav-mobile">
+<div [class.open]="showHiddenMenu" class="nav-mobile">
 
+  <div class="nav-header">
+    <button (click)="activeMenu(false)">
+      <fa-icon [icon]="faX" (click)="activeMenu"></fa-icon>
+    </button>
+  </div>
+
+  <ul class="info nav-item-mobile">
+    <li><a href="#">Inicio</a></li>
+    <li><a href="#">Servicios</a></li>
+    <li><a href="#">Contáctenos</a></li>
+  </ul>
+
+  <div class="info-contact nav-item">
+    <a href="#"><img src="../../../assets/icon/whatsapp-white.svg" alt=""> +57 316 987453</a>
+  </div>
 </div>

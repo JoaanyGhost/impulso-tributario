@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { faBars, faX} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-nav',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class NavComponent {
 
+  burguer = faBars
+  faX = faX
+
+  showHiddenMenu = false
+
+
+  activeMenu(bool: boolean){
+    this.showHiddenMenu = bool
+
+  }
 }

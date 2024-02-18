@@ -1,14 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { faMoneyBill, faScaleBalanced, faPuzzlePiece,  faFile, faPaste, faGavel, faLandmark} from '@fortawesome/free-solid-svg-icons';
 import Swiper from 'swiper';
+import { SwiperOptions } from 'swiper/types';
 
 @Component({
   selector: 'app-body',
   templateUrl: './body.component.html',
   styleUrls: ['./body.component.scss']
 })
-export class BodyComponent {
+export class BodyComponent implements OnInit{
+
+  config: SwiperOptions;
 
   indexProjects = 0;
 
@@ -63,9 +66,47 @@ export class BodyComponent {
   ];
 
 
-  swiper = new Swiper(".mySwiper", {
-    watchSlidesProgress: true,
-    slidesPerView: 3,
-  });
+
+
+
+  constructor() {
+    this.config = {
+      slidesPerView: 4,
+      breakpoints: {
+        // cuando la pantalla es >= 320px
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 20
+        },
+        // cuando la pantalla es >= 480px
+        480: {
+          slidesPerView: 1,
+          spaceBetween: 30
+        },
+        // cuando la pantalla es >= 640px
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 40
+        },
+        // cuando la pantalla es >= 1200px
+        1200: {
+          slidesPerView: 3,
+          spaceBetween: 40
+        },
+
+        1700: {
+          slidesPerView: 4,
+        }
+
+      }
+    };
+  }
+
+  ngOnInit() {
+
+    //this.swiper.slides;
+
+  }
+
 
 }
