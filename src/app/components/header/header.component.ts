@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -9,12 +9,22 @@ export class HeaderComponent {
 
   playVideo = true
 
-  ngOnInit(): void {
+
+  @HostListener('document:click', ['$event'])
+  @HostListener('document:mousemove', ['$event'])
+  @HostListener('document:scroll', ['$event'])
+  userActivity(event: Event) {
+    this.playVideo = true;
     this.Reproduccion();
+  }
+
+  ngOnInit(): void {
   }
 
   Reproduccion() {
     const video = document.getElementById('video-fondo') as HTMLVideoElement;
+    console.log('Video: ', video);
+    video.muted = true;
     if (video) {
       if(this.playVideo){
         video.play().then(() => {
@@ -40,5 +50,5 @@ export class HeaderComponent {
     }
 
   }
-  
+
 }
