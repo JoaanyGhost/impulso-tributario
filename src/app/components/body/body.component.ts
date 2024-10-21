@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { faMoneyBill, faScaleBalanced, faPuzzlePiece,  faFile, faPaste, faGavel, faLandmark} from '@fortawesome/free-solid-svg-icons';
+import { faMoneyBill, faScaleBalanced, faPuzzlePiece,  faFile, faPaste, faGavel, faLandmark, faDollarSign} from '@fortawesome/free-solid-svg-icons';
 import Swiper from 'swiper';
 import { SwiperOptions } from 'swiper/types';
 
@@ -54,7 +54,7 @@ export class BodyComponent implements OnInit{
 
     {
       name: 'Compra de Sentencias Judiciales',
-      logo: faLandmark,
+      logo: faDollarSign,
       text:'Te Ofrecemos servicios de compra de sentencias judiciales con el objeto de brindar soluciones de liquidez tanto a las víctimas de Entidades Estatales como a sus apoderados, brindando soluciones efectivas y oportunas. ',
     },
 
