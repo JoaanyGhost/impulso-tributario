@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "impulso-tributario:build:production"
+              "buildTarget": "impulso-tributario:build:production"
             },
             "development": {
-              "browserTarget": "impulso-tributario:build:development"
+              "buildTarget": "impulso-tributario:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "impulso-tributario:build"
+            "buildTarget": "impulso-tributario:build"
           }
         },
         "test": {
