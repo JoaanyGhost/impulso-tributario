@@ -7,56 +7,55 @@
 
       <br>
 
-      <span style="font-size: 25px;"> Somos expertos en asuntos tributarios y brindamos asesoría legal personalizada para optimizar tus obligaciones fiscales.</span>
-    </span>
+        <span style="font-size: 25px;"> Somos expertos en asuntos tributarios y brindamos asesoría legal personalizada para optimizar tus obligaciones fiscales.</span>
+      </span>
 
 
-    <div class="items-columns">
-      <div class="items-tips">
-        <div class="column">
-          <img src="../../../assets/icon/shield-solid.svg" alt="">
+      <div class="items-columns">
+        <div class="items-tips">
+          <div class="column">
+            <img src="../../../assets/icon/shield-solid.svg" alt="">
+          </div>
+          <div class="column">
+            <img src="../../../assets/icon/calculator-solid.svg" alt="">
+          </div>
+          <div class="column">
+            <img src="../../../assets/icon/handshake-simple-solid.svg" alt="">
+          </div>
         </div>
-        <div class="column">
-          <img src="../../../assets/icon/calculator-solid.svg" alt="">
-        </div>
-        <div class="column">
-          <img src="../../../assets/icon/handshake-simple-solid.svg" alt="">
-        </div>
-      </div>
 
-      <div class="items-tips" >
-        <div class="column">
-          <span>Tu tranquilidad, nuestra prioridad</span>
-        </div>
-        <div class="column">
+        <div class="items-tips" >
+          <div class="column">
+            <span>Tu tranquilidad, nuestra prioridad</span>
+          </div>
+          <div class="column">
             <span>Expertos en administración tributaria</span>
-        </div>
-        <div class="column">
+          </div>
+          <div class="column">
             <span>Profesionales de confianza en impuestos</span>
+          </div>
         </div>
       </div>
+
+
     </div>
 
 
+    <swiper-container id="Servicios"
+      pagination="true"
+      pagination-clickable="true"
+      [slidesPerView]="config.slidesPerView"
+      [breakpoints]="config.breakpoints">
+
+      @for (service of services; track service; let i = $index) {
+        <swiper-slide>
+          <div class="content-img-swiper">
+            <fa-icon [icon]="service.logo"></fa-icon>
+          </div>
+          <h1>{{service.name}}</h1>
+          <p>{{service.text}}</p>
+        </swiper-slide>
+      }
+    </swiper-container>
+
   </div>
-
-
-  <swiper-container id="Servicios"
-    pagination="true"
-    pagination-clickable="true"
-    [slidesPerView]="config.slidesPerView"
-    [breakpoints]="config.breakpoints">
-
-    <swiper-slide *ngFor="let service of services;let i = index">
-
-      <div class="content-img-swiper">
-        <fa-icon [icon]="service.logo"></fa-icon>
-      </div>
-
-      <h1>{{service.name}}</h1>
-
-      <p>{{service.text}}</p>
-    </swiper-slide>
-  </swiper-container>
-
-</div>

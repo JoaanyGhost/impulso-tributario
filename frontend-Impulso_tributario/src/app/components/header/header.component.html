@@ -6,23 +6,27 @@
     muted="muted"
     autoplay="true">
     <source src="../../../assets/fondos/header-fondo.mp4"
-    type="video/mp4">
-  </video>
-  <app-nav></app-nav>
+      type="video/mp4">
+    </video>
+    <app-nav></app-nav>
 
-  <div class="content-header-center">
-    <h1>
-      Impulso Tributario
-    </h1>
+    <div class="content-header-center">
+      <h1>
+        Impulso Tributario
+      </h1>
 
-    <p>Expertos en Impuestos, tu alivio financiero.</p>
+      <p>Expertos en Impuestos, tu alivio financiero.</p>
 
-    <a class="btn-header-center" href="#"><span>Contáctanos para servirte</span></a>
+      <a class="btn-header-center" href="#"><span>Contáctanos para servirte</span></a>
+    </div>
+
+    <button class="play" (click)="Reproduccion()">
+      @if (playVideo) {
+        <img (click)="cambioPlay()" src="../../../assets/icon/pause.svg" alt="pause">
+      }
+      @if (!playVideo) {
+        <img (click)="cambioPlay()" src="../../../assets/icon/play.svg" alt="play">
+      }
+    </button>
+
   </div>
-
-  <button class="play" (click)="Reproduccion()">
-    <img *ngIf="playVideo" (click)="cambioPlay()" src="../../../assets/icon/pause.svg" alt="pause">
-    <img *ngIf="!playVideo" (click)="cambioPlay()" src="../../../assets/icon/play.svg" alt="play">
-  </button>
-
-</div>
