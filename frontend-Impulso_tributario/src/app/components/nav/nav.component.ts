@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { faBars, faX} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'app-nav',
-  templateUrl: './nav.component.html',
-  styleUrls: ['./nav.component.scss']
+    selector: 'app-nav',
+    templateUrl: './nav.component.html',
+    styleUrls: ['./nav.component.scss'],
+    standalone: false
 })
 export class NavComponent {
 
