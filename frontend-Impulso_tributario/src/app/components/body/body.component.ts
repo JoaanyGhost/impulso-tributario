@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { faMoneyBill, faScaleBalanced, faPuzzlePiece,  faFile, faPaste, faGavel, faLandmark, faDollarSign} from '@fortawesome/free-solid-svg-icons';
 import Swiper from 'swiper';
@@ -8,6 +8,7 @@ import { SwiperOptions } from 'swiper/types';
     selector: 'app-body',
     templateUrl: './body.component.html',
     styleUrls: ['./body.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class BodyComponent implements OnInit{
