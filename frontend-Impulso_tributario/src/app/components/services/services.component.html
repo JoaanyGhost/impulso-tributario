@@ -1,0 +1,51 @@
+<section class="services" id="servicios">
+  <div class="container">
+    <header class="services__head">
+      <h2>Ocho frentes, un mismo criterio.</h2>
+
+    </header>
+
+    <div class="services__layout" [style.--i]="activeIndex()">
+      <ul class="list">
+        @for (s of services; track s.id; let i = $index) {
+          <li class="item" [class.item--active]="i === activeIndex()">
+            <button
+              class="item__btn"
+              type="button"
+              [attr.aria-expanded]="i === activeIndex()"
+              (click)="select(i)"
+            >
+              <span>{{ s.name }}</span>
+
+            </button>
+
+            <!-- Detalle desplegable: solo visible en móvil -->
+            <div class="item__detail">
+              <div class="item__inner">
+                <p>{{ s.text }}</p>
+                <a class="btn btn-ink" routerLink="/consulta" [queryParams]="{ servicio: s.id }">
+                  Consultar sobre este servicio
+                </a>
+              </div>
+            </div>
+          </li>
+        }
+      </ul>
+
+      <!-- Panel de vidrio: solo visible en escritorio -->
+      <aside class="panel" aria-live="polite">
+        <!-- [active()] con track por id vuelve a crear el bloque y reinicia su animación -->
+        @for (s of [active()]; track s.id) {
+          <div class="glass">
+            <span class="glass__icon"><fa-icon [icon]="s.icon" /></span>
+            <h3>{{ s.name }}</h3>
+            <p>{{ s.text }}</p>
+            <a class="btn btn-brown" routerLink="/consulta" [queryParams]="{ servicio: s.id }">
+              Solicitar consulta sobre este servicio
+            </a>
+          </div>
+        }
+      </aside>
+    </div>
+  </div>
+</section>

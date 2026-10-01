@@ -41,21 +41,8 @@
     </div>
 
 
-    <swiper-container id="Servicios"
-      pagination="true"
-      pagination-clickable="true"
-      [slidesPerView]="config.slidesPerView"
-      [breakpoints]="config.breakpoints">
 
-      @for (service of services; track service; let i = $index) {
-        <swiper-slide>
-          <div class="content-img-swiper">
-            <fa-icon [icon]="service.logo"></fa-icon>
-          </div>
-          <h1>{{service.name}}</h1>
-          <p>{{service.text}}</p>
-        </swiper-slide>
-      }
-    </swiper-container>
 
   </div>
+
+  <app-services></app-services>

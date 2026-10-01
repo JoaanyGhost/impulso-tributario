@@ -1,50 +1,35 @@
-<div class="nav-web">
+<nav class="nav" [class.nav--scrolled]="scrolled()" aria-label="Principal">
+  <a class="nav__logo" routerLink="/" (click)="closeMenu()">
+    <img src="assets/logo/Logo_IT_white.svg" alt="Impulso Tributario Logo" class="nav__logo-image">
+    Impulso <br  class="nav__logo-text"/> Tributario
+  </a>
 
-  <div class="marca nav-item">
-    <img class="logo" src="./../../../assets/logo/Logo_IT_white.svg" alt="">
-    <span>
-      Impulso
-      <br>
-        Tributario
-      </span>
-    </div>
-
-
-
-    <ul class="info nav-item">
-      <li><a href="#Inicio">Inicio</a></li>
-      <li><a href="#Servicios">Servicios</a></li>
-      <li><a href="#Contactenos">Contáctenos</a></li>
-    </ul>
-
-
-    <div class="info-contact nav-item">
-      <a href="#"><img src="../../../assets/icon/whatsapp.svg" alt=""> +57 316 987453</a>
-    </div>
-
-    @if (!showHiddenMenu) {
-      <button  class="menu">
-        <fa-icon [icon]="burguer" (click)="activeMenu(true)"></fa-icon>
-      </button>
+  <ul class="nav__links">
+    @for (link of links; track link.path) {
+      <li>
+        <a [routerLink]="link.path" routerLinkActive="is-active">{{ link.label }}</a>
+      </li>
     }
+  </ul>
 
-  </div>
+  <a class="btn btn-white nav__cta" routerLink="/consulta">Solicitar consulta</a>
 
-  <div [class.open]="showHiddenMenu" class="nav-mobile">
+  <button
+    class="nav__burger"
+    type="button"
+    [attr.aria-expanded]="menuOpen()"
+    aria-controls="mobile-menu"
+    (click)="toggleMenu()"
+  >
+    {{ menuOpen() ? 'Cerrar' : 'Menú' }}
+  </button>
+</nav>
 
-    <div class="nav-header">
-      <button (click)="activeMenu(false)">
-        <fa-icon [icon]="faX" (click)="activeMenu"></fa-icon>
-      </button>
-    </div>
-
-    <ul class="info nav-item-mobile">
-      <li><a href="#">Inicio</a></li>
-      <li><a href="#">Servicios</a></li>
-      <li><a href="#">Contáctenos</a></li>
-    </ul>
-
-    <div class="info-contact nav-item">
-      <a href="#"><img src="../../../assets/icon/whatsapp-white.svg" alt=""> +57 316 987453</a>
-    </div>
-  </div>
+<div class="menu" id="mobile-menu" [class.menu--open]="menuOpen()" [attr.aria-hidden]="!menuOpen()">
+  @for (link of links; track link.path) {
+    <a [routerLink]="link.path" (click)="closeMenu()" [tabindex]="menuOpen() ? 0 : -1">{{ link.label }}</a>
+  }
+  <a class="menu__cta" routerLink="/consulta" (click)="closeMenu()" [tabindex]="menuOpen() ? 0 : -1">
+    Solicitar consulta
+  </a>
+</div>

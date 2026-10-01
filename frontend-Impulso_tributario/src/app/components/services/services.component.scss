@@ -1,0 +1,194 @@
+$mobile: 860px;
+
+.services {
+  background: var(--bg-alt);
+  padding: 110px 0;
+
+  /* Ocupa todo el ancho disponible (100%, no 100vw, para no provocar scroll horizontal) */
+  .container {
+    max-width: none;
+    padding-inline: 40px;
+  }
+
+  &__head {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: end;
+    margin-bottom: 56px;
+
+    h2 { font-size: clamp(44px, 6.5vw, 104px); }
+
+    p {
+      max-width: 52ch;
+      font-size: 17px;
+      color: color-mix(in srgb, var(--fg) 75%, transparent);
+    }
+  }
+
+  &__layout {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: clamp(40px, 5vw, 96px);
+    align-items: start;
+  }
+}
+
+/* ---------- Lista ---------- */
+.list {
+  list-style: none;
+  padding: 0;
+  border-top: 1.5px solid var(--line);
+}
+
+.item {
+  border-bottom: 1.5px solid var(--line);
+
+  &__btn {
+    all: unset;
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 24px 4px;
+    cursor: pointer;
+    font: 400 clamp(24px, 2.4vw, 40px) / 1.05 var(--font-serif);
+    letter-spacing: -0.02em;
+    transition: padding 0.3s, color 0.3s;
+
+    &:hover { color: var(--brown); }
+    &:focus-visible { outline: 2px solid var(--brown); outline-offset: -2px; }
+  }
+
+  &__hint {
+    flex-shrink: 0;
+    font: 500 13px var(--font-sans);
+    letter-spacing: 0;
+    color: var(--brown);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  &--active &__btn { padding-left: 18px; color: var(--brown); }
+  &--active &__hint { opacity: 1; }
+
+  &__detail { display: none; }
+}
+
+/* ---------- Panel de vidrio ---------- */
+.panel {
+  position: sticky;
+  top: 110px;
+  min-height: 560px;
+  padding: clamp(32px, 3.5vw, 56px);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: linear-gradient(140deg, var(--teal), #0a6b7b);
+  color: var(--ivory);
+
+  /* Orbe de color: se desplaza según el servicio elegido (--i) */
+  &::before {
+    content: '';
+    position: absolute;
+    right: -60px;
+    top: -70px;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(
+      circle at 35% 30%,
+      rgba(229, 209, 184, 0.7),
+      rgba(188, 141, 112, 0.55) 50%,
+      transparent 72%
+    );
+    filter: blur(6px);
+    transform: translate(calc(var(--i, 0) * -14px), calc(var(--i, 0) * 12px));
+    transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+}
+
+.glass {
+  position: relative;
+  padding: 28px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  animation: swap 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+
+  &__icon {
+    display: grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    margin-bottom: 18px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    background: rgba(255, 255, 255, 0.12);
+    font-size: 18px;
+  }
+
+  h3 {
+    font-size: clamp(30px, 3.2vw, 52px);
+    margin-bottom: 14px;
+  }
+
+  p {
+    font-size: clamp(15.5px, 1.2vw, 18px);
+    line-height: 1.6;
+    color: #f1e6d3;
+    margin-bottom: 24px;
+    max-width: 64ch;
+  }
+}
+
+@keyframes swap {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glass { animation: none; }
+}
+
+/* ---------- Móvil: acordeón ---------- */
+@media (max-width: $mobile) {
+  .services {
+    padding: 80px 0;
+
+    .container { padding-inline: 20px; }
+
+    &__head,
+    &__layout { grid-template-columns: 1fr; }
+  }
+
+  .panel { display: none; }
+
+  .item__detail {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.35s ease;
+  }
+
+  .item--active .item__detail { grid-template-rows: 1fr; }
+
+  .item__inner {
+    overflow: hidden;
+    padding-inline: 18px;
+
+    p {
+      font-size: 15px;
+      margin-bottom: 16px;
+      color: color-mix(in srgb, var(--fg) 80%, transparent);
+    }
+
+    .btn { margin-bottom: 24px; }
+  }
+}

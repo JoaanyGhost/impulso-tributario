@@ -118,6 +118,7 @@
     padding: 30px 20px;
     background-color: white;
     border-radius: 2px;
+    z-index: 99;
 
     text-decoration: none;
     color: #BC8D70;
@@ -125,7 +126,7 @@
 
     span{
       position: relative;
-      z-index: 200;
+      z-index: 99;
       font-size: 20px;
       letter-spacing: 5px;
       transition: all 900ms;
