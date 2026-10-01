@@ -12,6 +12,7 @@ import { ServicesComponent } from './components/services/services.component';
 import { register } from 'swiper/element/bundle';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FooterComponent } from './components/footer/footer.component';
+import { ProblemsComponent } from './components/problems/problems.component';
 register();
 
 @NgModule({
@@ -27,8 +28,9 @@ register();
     AppRoutingModule,
     FontAwesomeModule,
     NavComponent,
-    ServicesComponent
-  ],
+    ServicesComponent,
+    ProblemsComponent
+],
   providers: [],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

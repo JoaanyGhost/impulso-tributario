@@ -1,0 +1,29 @@
+<section class="problems" id="problemas">
+  <div class="container">
+    <div class="problems__layout">
+      <div class="problems__intro">
+        <h2>¿Tiene alguno de estos problemas?</h2>
+
+        <div class="study">
+          <h3>Solicite un estudio de su caso</h3>
+          <p>
+            Envíenos la actuación de la DIAN y realizaremos una revisión inicial para determinar las
+            alternativas jurídicas y tributarias disponibles.
+          </p>
+          <a class="btn btn-ink" routerLink="/consulta">Solicitar consulta</a>
+        </div>
+      </div>
+
+      <ul class="list">
+        @for (p of problems; track p.text) {
+          <li>
+            <a class="row" routerLink="/consulta" [queryParams]="{ servicio: p.service }">
+              <span>{{ p.text }}</span>
+              <span class="row__arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+</section>

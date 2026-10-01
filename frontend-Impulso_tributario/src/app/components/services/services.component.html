@@ -1,8 +1,11 @@
 <section class="services" id="servicios">
   <div class="container">
     <header class="services__head">
-      <h2>Ocho frentes, un mismo criterio.</h2>
-
+      <h2>Cinco frentes, un mismo criterio.</h2>
+      <p>
+        Cada servicio parte de un diagnóstico y termina con una decisión documentada que usted
+        puede sustentar ante la autoridad.
+      </p>
     </header>
 
     <div class="services__layout" [style.--i]="activeIndex()">
@@ -16,15 +19,18 @@
               (click)="select(i)"
             >
               <span>{{ s.name }}</span>
-
             </button>
 
             <!-- Detalle desplegable: solo visible en móvil -->
             <div class="item__detail">
               <div class="item__inner">
-                <p>{{ s.text }}</p>
+                <ul class="item__topics">
+                  @for (t of s.topics; track t) {
+                    <li>{{ t }}</li>
+                  }
+                </ul>
                 <a class="btn btn-ink" routerLink="/consulta" [queryParams]="{ servicio: s.id }">
-                  Consultar sobre este servicio
+                  Solicitar consulta
                 </a>
               </div>
             </div>
@@ -39,7 +45,13 @@
           <div class="glass">
             <span class="glass__icon"><fa-icon [icon]="s.icon" /></span>
             <h3>{{ s.name }}</h3>
-            <p>{{ s.text }}</p>
+
+            <ul class="glass__topics">
+              @for (t of s.topics; track t; let n = $index) {
+                <li [style.--n]="n">{{ t }}</li>
+              }
+            </ul>
+
             <a class="btn btn-brown" routerLink="/consulta" [queryParams]="{ servicio: s.id }">
               Solicitar consulta sobre este servicio
             </a>
