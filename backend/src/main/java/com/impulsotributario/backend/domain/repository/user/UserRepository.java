@@ -1,4 +1,4 @@
-package com.impulsotributario.backend.domain.repository;
+package com.impulsotributario.backend.domain.repository.user;
 
 import com.impulsotributario.backend.domain.entity.user.User;
 

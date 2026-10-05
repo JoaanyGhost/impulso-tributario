@@ -57,6 +57,11 @@ public class SecurityConfig {
                                 "/auth/login"
                         ).permitAll()
 
+                        .requestMatchers(
+                                HttpMethod.GET,
+                                "/services/**"
+                        ).permitAll()
+
                         // Consultar productos públicamente
                         .requestMatchers(
                                 HttpMethod.GET,

@@ -1,7 +1,7 @@
 package com.impulsotributario.backend.infrastructure.security;
 
 import com.impulsotributario.backend.domain.entity.user.User;
-import com.impulsotributario.backend.domain.repository.UserRepository;
+import com.impulsotributario.backend.domain.repository.user.UserRepository;
 import org.jspecify.annotations.NonNull;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

@@ -17,9 +17,8 @@ public class UserDocument {
     private String lastName;
     private boolean active;
 
-    // getters and setters
 
-
+    // GETTERS AND SETTERS
     public ObjectId getId() {
         return id;
     }

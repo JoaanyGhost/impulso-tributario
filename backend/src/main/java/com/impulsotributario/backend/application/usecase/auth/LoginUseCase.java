@@ -2,7 +2,7 @@ package com.impulsotributario.backend.application.usecase.auth;
 
 import com.impulsotributario.backend.application.exception.user.InvalidCredentialsException;
 import com.impulsotributario.backend.domain.entity.user.User;
-import com.impulsotributario.backend.domain.repository.UserRepository;
+import com.impulsotributario.backend.domain.repository.user.UserRepository;
 import com.impulsotributario.backend.infrastructure.security.JwtService;
 import com.impulsotributario.backend.presentation.dto.auth.LoginResponse;
 import org.springframework.security.crypto.password.PasswordEncoder;

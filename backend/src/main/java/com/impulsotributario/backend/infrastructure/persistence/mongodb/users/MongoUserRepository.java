@@ -1,7 +1,7 @@
 package com.impulsotributario.backend.infrastructure.persistence.mongodb.users;
 
 import com.impulsotributario.backend.domain.entity.user.User;
-import com.impulsotributario.backend.domain.repository.UserRepository;
+import com.impulsotributario.backend.domain.repository.user.UserRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
