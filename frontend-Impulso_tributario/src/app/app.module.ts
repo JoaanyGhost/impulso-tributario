@@ -3,17 +3,17 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { HeaderComponent } from './components/header/header.component';
-import { BodyComponent } from './components/body/body.component';
-import { NavComponent } from './components/nav/nav.component';
-import { ServicesComponent } from './components/services/services.component';
+import { HomeComponent } from './presentation/home/home.component';
+import { HeaderComponent } from './presentation/home/components/header/header.component';
+import { BodyComponent } from './presentation/home/components/body/body.component';
+import { NavComponent } from './shared/components/nav/nav.component';
+import { ServicesComponent } from './presentation/home/components/services/services.component';
 
-import { register } from 'swiper/element/bundle';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { FooterComponent } from './components/footer/footer.component';
-import { ProblemsComponent } from './components/problems/problems.component';
-register();
+import { FooterComponent } from './shared/components/footer/footer.component';
+import { ProblemsComponent } from './presentation/home/components/problems/problems.component';
+import { provideHttpClient } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +31,7 @@ register();
     ServicesComponent,
     ProblemsComponent
 ],
-  providers: [],
+  providers: [provideHttpClient()],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

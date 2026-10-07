@@ -1,0 +1,132 @@
+<main class="stage">
+  <div class="beam"></div>
+
+  <!-- Fondo: juzgado clásico dibujado -->
+  <svg
+    class="court"
+    [style.transform]="courtTransform()"
+    viewBox="0 0 1200 420"
+    preserveAspectRatio="xMidYMax slice"
+    aria-hidden="true"
+  >
+    <defs>
+      <g id="itColumn">
+        <rect x="-34" y="136" width="68" height="14" />
+        <rect x="-26" y="150" width="52" height="206" />
+        <rect x="-34" y="356" width="68" height="16" />
+        <line x1="-13" y1="154" x2="-13" y2="352" />
+        <line x1="0" y1="154" x2="0" y2="352" />
+        <line x1="13" y1="154" x2="13" y2="352" />
+      </g>
+    </defs>
+    <polygon points="90,110 600,14 1110,110" />
+    <rect x="90" y="110" width="1020" height="24" />
+    @for (x of columns; track x) {
+      <use href="#itColumn" [attr.x]="x" />
+    }
+    <rect x="70" y="372" width="1060" height="16" />
+    <rect x="50" y="388" width="1100" height="16" />
+    <rect x="30" y="404" width="1140" height="16" />
+  </svg>
+
+  <!-- Logo: balanza de la justicia (sustituir por el SVG oficial de la marca) -->
+  <!-- <svg class="logo" viewBox="0 0 120 120" role="img" aria-label="Impulso Tributario">
+    <defs>
+      <linearGradient id="itMetal" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#F3E6D2" />
+        <stop offset=".5" stop-color="#E5D1B8" />
+        <stop offset="1" stop-color="#BC8D70" />
+      </linearGradient>
+    </defs>
+    <circle class="f" cx="60" cy="12" r="4.5" />
+    <path d="M60 17V98M20 30H100M40 104H80M48 98H72" />
+    <path d="M20 30 8 64M20 30 32 64M100 30 88 64M100 30 112 64" />
+    <path d="M5 64Q20 84 35 64ZM85 64Q100 84 115 64Z" />
+  </svg> -->
+
+  <img class="logo" src="assets/logo/Logo_IT_white.svg" alt="Impulso Tributario">
+
+  <section class="card">
+    <h1>Bienvenido <em>de nuevo</em></h1>
+    <p class="sub">Ingresa para gestionar leads, clientes y casos.</p>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+      <!-- Correo -->
+      <div class="field" [class.bad]="showError('email')">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="3" y="5" width="18" height="14" rx="3" />
+          <path d="m4 7 8 6 8-6" />
+        </svg>
+        <label for="email">Correo electrónico</label>
+        <input
+          id="email"
+          type="email"
+          formControlName="email"
+          placeholder="nombre@impulsotributario.co"
+          autocomplete="username"
+          [attr.aria-invalid]="showError('email')"
+          aria-describedby="email-error"
+        />
+      </div>
+      <p class="err" id="email-error" role="alert">
+        @if (showError('email')) { {{ emailError() }} }
+      </p>
+
+      <!-- Contraseña -->
+      <div class="field" [class.bad]="showError('password')">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="5" y="11" width="14" height="9" rx="3" />
+          <path d="M8 11V8a4 4 0 0 1 8 0v3M12 15v2" />
+        </svg>
+        <label for="password">Contraseña</label>
+        <input
+          id="password"
+          [type]="showPassword() ? 'text' : 'password'"
+          formControlName="password"
+          placeholder="Ingresa tu contraseña"
+          autocomplete="current-password"
+          [attr.aria-invalid]="showError('password')"
+          aria-describedby="password-error"
+        />
+        <button
+          class="eye"
+          type="button"
+          (click)="showPassword.set(!showPassword())"
+          [attr.aria-pressed]="showPassword()"
+          [attr.aria-label]="showPassword() ? 'Ocultar contraseña' : 'Mostrar contraseña'"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+            <circle cx="12" cy="12" r="3" />
+            @if (!showPassword()) {
+              <path d="m4 4 16 16" />
+            }
+          </svg>
+        </button>
+      </div>
+      <p class="err" id="password-error" role="alert">
+        @if (showError('password')) { Escribe tu contraseña. }
+      </p>
+
+      <!-- Pendiente: la recuperación de contraseña se implementa más adelante -->
+      <a class="forgot" href="#" (click)="$event.preventDefault()">¿Olvidaste tu contraseña?</a>
+
+      <button class="btn" type="submit" [disabled]="loading()" [class.loading]="loading()">
+        <span>Ingresar</span>
+        <svg class="arrow" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M5 12h14M13 6l6 6-6 6" />
+        </svg>
+        <i class="spin"></i>
+      </button>
+
+      <p class="status" role="alert">
+        @if (errorMessage(); as msg) { {{ msg }} }
+      </p>
+    </form>
+
+    <div class="foot">
+      <span>Acceso exclusivo para el equipo de la firma.</span>
+      <a routerLink="/">← Volver al sitio web</a>
+    </div>
+  </section>
+</main>
